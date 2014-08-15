@@ -1,6 +1,6 @@
 {
   "name": "koa-assign",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "assign some property to koa context",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "koa",
     "assign"
   ],
-  "author": "Jeremial",
+  "author": "Treri",
   "license": "MIT",
   "devDependencies": {
     "koa": "^0.8.0",
@@ -22,10 +22,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Jeremial/koa-assign"
+    "url": "https://github.com/Treri/koa-assign"
   },
   "bugs": {
-    "url": "https://github.com/Jeremial/koa-assign/issues"
+    "url": "https://github.com/Treri/koa-assign/issues"
   },
-  "homepage": "https://github.com/Jeremial/koa-assign"
+  "homepage": "https://github.com/Treri/koa-assign"
 }
