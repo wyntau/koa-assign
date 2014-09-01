@@ -7,18 +7,29 @@ assign property to koa context, so these properties are available in follow midd
     npm install koa-assign
 
 #### Usage
+There is three usages.
 
-    var koa = require('koa')
-        , assign = require('koa-assign')('_' /* property prefix, default to _ */)
-        , app = koa()
-        ;
+```js
+var koa = require('koa')
+    , assign = require('koa-assign')()
+    , assign2 = require('koa-assign')('assigns')
+    , assign3 = require('koa-assign')({
+        key: 'thus'
+    })
+    , app = koa()
+    ;
 
-    app
-        .use(assign('test', 'text'))
-        .use(function *(next){
-            this.body = this._test
-        })
-        .listen(3000);
+app
+    .use(assign('test', 'text'))
+    .use(assign2('test', 'assign'))
+    .use(assign3('test', 'thus'))
+    .use(function *(next){
+        // this.vars.test === 'text'
+        // this.assigins.test === 'assign'
+        // this.thus.test === 'thus'
+    })
+    .listen(3000);
+```
 
 #### LICENSE
 MIT

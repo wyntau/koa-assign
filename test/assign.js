@@ -4,12 +4,12 @@ var koa = require('koa')
     ;
 
 describe('assign property', function(){
-    it('should assign prefix _ when no prefix specificed', function(done){
+    it('should use default vars name', function(done){
         var assign = require('..')();
         var app = koa()
             .use(assign('text', 'test'))
             .use(function *(next){
-                this.body = this._text;
+                this.body = this.vars.text
             });
 
         request(app.listen())
@@ -17,12 +17,27 @@ describe('assign property', function(){
             .expect('test', done);
     });
 
-    it('should assign specific prefix', function(done){
-        var assign = require('..')('__');
+    it('should parse string option', function(done){
+        var assign = require('..')('assigns');
         var app = koa()
             .use(assign('text', 'test'))
             .use(function *(next){
-                this.body = this.__text;
+                this.body = this.assigns.text;
+            });
+
+        request(app.listen())
+            .get('/')
+            .expect('test', done);
+    });
+
+    it('should parse option object', function(done){
+        var assign = require('..')({
+            key: 'thus'
+        });
+        var app = koa()
+            .use(assign('text', 'test'))
+            .use(function *(next){
+                this.body = this.thus.text;
             });
 
         request(app.listen())

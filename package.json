@@ -1,10 +1,10 @@
 {
   "name": "koa-assign",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "assign some property to koa context",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --harmony"
+    "test": "./node_modules/.bin/mocha --harmony"
   },
   "keywords": [
     "koa",
